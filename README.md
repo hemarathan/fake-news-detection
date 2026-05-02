@@ -48,15 +48,16 @@
 ---
 
 ## 📁 Repository Structure
+
 fake-news-detection/
-│
-├── 📄 README.md      ← You are here    
 
-├── 📓 Fake_News_Detection_GradientDescenters.ipynb      ← Main notebook (all 11 sections)  
 
-└── 📂 report/      
+├── 📄 README.md               ← You are here
 
-└── 📑 IEEE_FakeNewsDetection_GradientDescenters.pdf ← Final IEEE conference report
+├── 📓 AI_Notebook.ipynb       ← Main notebook (all 11 sections)
+
+└── 📑 IEEE_Report.pdf         ← Final IEEE conference report
+
 
 > ⚠️ Dataset files (`Fake.csv`, `True.csv`) are **not included** due to file size. See Step 3 below for download instructions.
 
