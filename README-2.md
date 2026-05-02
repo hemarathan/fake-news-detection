@@ -13,12 +13,7 @@
 
 ## 👥 Team — Gradient Descenters
 
-| Name | Student ID | Email |
-|---|---|---|
-| Hemarathan Munnangi | 033794785 | hemarathan.munnangi01@student.csulb.edu |
-| Mauli Arunkumar Pandya | 035134097 | MauliArunkumar.Pandya01@student.csulb.edu |
-| Mansi Bharatbhai Lathiya | 033795370 | mansibharatbhai.lathiya01@student.csulb.edu |
-| Gyanendra Pandey | — | gyanendra.pandey01@student.csulb.edu |
+
 
 **Course:** CECS 551 — Artificial Intelligence | California State University, Long Beach  
 **Instructor:** Dr. Benyamin Haghi
