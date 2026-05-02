@@ -287,7 +287,7 @@ We apply two complementary post-hoc XAI methods to understand individual DistilB
 
 ## 📄 Report
 
-The full IEEE-style conference report is in `report/IEEE_FakeNewsDetection_GradientDescenters.pdf`
+The full IEEE-style conference report is available here: [📑 IEEE Report](IEEE_Report.pdf)
 
 Sections: Abstract · Introduction · Literature Review (6 subsections) · Methods (7 subsections) · Results (4 subsections) · Discussion · Conclusion & Future Work · References (18 citations)
 
