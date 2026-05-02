@@ -9,14 +9,23 @@
 
 > A complete, reproducible fake news detection pipeline combining fine-tuned **DistilBERT** with **LIME** and **SHAP** Explainable AI — achieving an **F1-score of 0.9995** and **perfect precision of 1.0000** on 4,404 held-out test articles.
 
----
+## 🔗 Quick Navigation
+[👥 Team](#-team--gradient-descenters) · [📊 Results](#-results-summary) · [🚀 How to Run](#-how-to-run-step-by-step) · [📦 Dependencies](#-dependencies) · [🔧 Hyperparameters](#-hyperparameters) · [🧠 XAI](#-explainable-ai-xai--section-11) · [⚠️ Limitations](#️-known-limitations) · [📄 Report](#-report)
 
+---
 ## 👥 Team — Gradient Descenters
 
+**Course:** CECS 551 — Artificial Intelligence | California State University, Long Beach
 
-
-**Course:** CECS 551 — Artificial Intelligence | California State University, Long Beach  
 **Instructor:** Dr. Benyamin Haghi
+
+| Name |
+|---|
+| Hemarathan Munnangi |
+| Mauli Arunkumar Pandya |
+| Mansi Bharatbhai Lathiya |
+| Gyanendra Pandey |
+
 
 ---
 
@@ -30,23 +39,28 @@
 
 > ✅ DistilBERT achieves **perfect precision** — every article predicted as Real was genuinely Real, with **zero false positives** and only **2 misclassifications** out of 4,404 test articles.
 
+| Misclassification Detail | Count |
+|---|---|
+| Fake predicted as Real | 0 |
+| Real predicted as Fake | 2 |
+| **Total errors** | **2 / 4,404** |
+
 ---
 
 ## 📁 Repository Structure
-
-```
 fake-news-detection/
 │
-├── README.md                                          ← You are here
-├── Fake_News_Detection_GradientDescenters.ipynb       ← Main notebook (all 11 sections)
-└── report/
-    └── IEEE_FakeNewsDetection_GradientDescenters.pdf  ← Final IEEE conference report
-```
+├── 📄 README.md      ← You are here    
+
+├── 📓 Fake_News_Detection_GradientDescenters.ipynb      ← Main notebook (all 11 sections)  
+
+└── 📂 report/      
+
+└── 📑 IEEE_FakeNewsDetection_GradientDescenters.pdf ← Final IEEE conference report
 
 > ⚠️ Dataset files (`Fake.csv`, `True.csv`) are **not included** due to file size. See Step 3 below for download instructions.
 
 ---
-
 ## 🗂️ Dataset
 
 | Property | Details |
@@ -91,7 +105,6 @@ Section 11 — Explainable AI (LIME word-level + SHAP token-level explanations)
 ```
 
 ---
-
 ## 🚀 How to Run (Step-by-Step)
 
 ### Step 1 — Open the Notebook in Google Colab
@@ -107,7 +120,6 @@ Go to [colab.research.google.com](https://colab.research.google.com/) → **File
 ```
 Runtime → Change runtime type → Hardware accelerator → T4 GPU → Save
 ```
-
 > GPU is **required** for DistilBERT training. Running on CPU will be extremely slow (~8–10x longer).
 
 ---
@@ -124,7 +136,7 @@ Runtime → Change runtime type → Hardware accelerator → T4 GPU → Save
 
 ### Step 4 — Upload Dataset Files to Colab
 
-In Colab, click the 📁 **folder icon** in the left sidebar → then click the **upload icon** → upload both `Fake.csv` and `True.csv`
+In Colab, click the 📁 **folder icon** in the left sidebar → click the **upload icon** → upload both `Fake.csv` and `True.csv`
 
 > Files must be in the Colab root directory (`/content/`) — this is where the notebook expects them.
 
@@ -132,11 +144,9 @@ In Colab, click the 📁 **folder icon** in the left sidebar → then click the 
 
 ### Step 5 — Run All Cells in Order
 
-```
-Runtime → Run all
-```
+> GPU is **required** for DistilBERT training. Running on CPU will be extremely slow (~8–10x longer).
 
-Or run cells **one by one from top to bottom** — do not skip any cell, as each section depends on the ones above.
+Runtime → Run all
 
 > ⏱️ **Estimated total runtime: ~30–35 minutes on T4 GPU**
 
@@ -172,7 +182,6 @@ All dependencies are **automatically installed in Section 1** (Cell 1) of the no
 > Only `transformers`, `datasets`, `lime`, and `shap` need to be installed — everything else comes pre-installed in Google Colab.
 
 ---
-
 ## 🔧 Hyperparameters
 
 ### DistilBERT Fine-Tuning
@@ -213,7 +222,6 @@ All dependencies are **automatically installed in Section 1** (Cell 1) of the no
 > All splits use **stratified sampling** (`stratify=y`) with `random_state=42` to preserve class distribution across all sets.
 
 ---
-
 ## 🧠 Explainable AI (XAI) — Section 11
 
 We apply two complementary post-hoc XAI methods to understand individual DistilBERT predictions:
@@ -236,45 +244,57 @@ We apply two complementary post-hoc XAI methods to understand individual DistilB
 > The model learned that **Reuters wire service datelines** (tokens like `"reuters"`, `"nairobi"`) strongly signal Real news, while **sensationalist political language** (tokens like `"candidate"`, `"america"`, `"fits"`) signals Fake news. This reveals a partial reliance on **source attribution patterns** rather than pure content-level features — a vulnerability future work should address.
 
 ---
+## ⚠️ Known Limitations & Future Work
 
-## ⚠️ Known Limitations
-
-| Limitation | Impact |
-|---|---|
-| Dataset covers only **2015–2017 US political news** | May not generalize to other domains, languages, or time periods |
-| Model partially relies on **Reuters source signals** | Vulnerable to adversaries mimicking wire service formatting |
-| Evaluated on a **single dataset** | Cross-dataset testing on LIAR and FakeNewsNet is future work |
-| LIME uses **300 perturbation samples** (recommended: 500+) | Explanation stability may vary between runs |
-| Only article **body text** is used | Title, subject, and date features are not exploited |
-| Hyperparameters **not exhaustively tuned** | Compute constraints on Colab limited grid search |
-| No **k-fold cross-validation** | Fixed seed split may not fully represent model variance |
+| Limitation | Impact | Future Work |
+|---|---|---|
+| Dataset covers only **2015–2017 US political news** | May not generalize to other domains, languages, or time periods | Test on LIAR and FakeNewsNet benchmarks |
+| Model partially relies on **Reuters source signals** | Vulnerable to adversaries mimicking wire service formatting | Retrain after removing source attribution signals |
+| Evaluated on a **single dataset** | Results may not reflect real-world generalization | Cross-dataset evaluation across multiple benchmarks |
+| LIME uses **300 perturbation samples** (recommended: 500+) | Explanation stability may vary between runs | Increase to 500+ samples for more stable explanations |
+| Only article **body text** is used | Title, subject, and date features are not exploited | Incorporate multimodal and metadata features |
+| Hyperparameters **not exhaustively tuned** | Compute constraints on Colab limited grid search | Systematic hyperparameter optimization with more compute |
+| No **k-fold cross-validation** | Fixed seed split may not fully represent model variance | Implement k-fold CV for more reliable performance estimates |
 
 ---
 
-## 📚 Key References
+## 📚 References
 
-| Reference | Contribution |
-|---|---|
-| Devlin et al. (2019) | BERT — bidirectional transformer pre-training |
-| Sanh et al. (2019) | DistilBERT — 40% smaller, 60% faster, 97% of BERT performance |
-| Ribeiro et al. (2016) | LIME — local surrogate model explanations |
-| Lundberg & Lee (2017) | SHAP — Shapley value attribution framework |
-| Kaliyar et al. (2021) | FakeBERT — BERT applied to fake news detection |
-| Wang (2017) | LIAR — benchmark dataset for fake news detection |
-| Bisaillon (2020) | Kaggle Fake-and-Real-News dataset used in this project |
+| # | Reference | Contribution |
+|---|---|---|
+| [1] | Olan et al. (2024) | Fake news impact on society — Information Systems Frontiers |
+| [2] | Perez-Rosas et al. (2018) | Automatic detection of fake news — COLING |
+| [3] | Chen & Shu (2024) | LLM-generated misinformation detection — ICLR |
+| [4] | Wang (2017) | LIAR dataset — benchmark for fake news detection — ACL |
+| [5] | Alghamdi et al. (2024) | Survey on ML approaches for fake news — Multimedia Tools |
+| [6] | Rashkin et al. (2017) | Language in fake news and fact-checking — EMNLP |
+| [7] | Mallik & Kumar (2024) | Word2Vec + LSTM for fake news detection — Multimedia Tools |
+| [8] | Devlin et al. (2019) | BERT — bidirectional transformer pre-training — NAACL |
+| [9] | Kaliyar et al. (2021) | FakeBERT — BERT with convolutional layers — Multimedia Tools |
+| [10] | Farokhian et al. (2024) | Dual-BERT architecture for fake news — Multimedia Tools |
+| [11] | Raza et al. (2024) | Comparative evaluation of BERT-like models — arXiv |
+| [12] | Tzannetos et al. (2025) | CNNs, LLMs, NLP for fake news — Future Internet |
+| [13] | Sanh et al. (2019) | DistilBERT — smaller, faster, cheaper BERT — arXiv |
+| [14] | Ribeiro et al. (2016) | LIME — explaining predictions of any classifier — KDD |
+| [15] | Lundberg & Lee (2017) | SHAP — unified approach to interpreting models — NeurIPS |
+| [16] | Albtoush et al. (2025) | Explainability method for BERT-based fake news — PeerJ |
+| [17] | Hashmi et al. (2024) | Hybrid deep learning with FastText and XAI — IEEE Access |
+| [18] | Bisaillon (2020) | Kaggle Fake-and-Real-News dataset |
 
-Full IEEE-formatted reference list (18 references) is available in the project report.
+> Full IEEE-formatted reference list is available in the project report.
 
 ---
 
 ## 📄 Report
 
-The full IEEE-style conference report is in `report/IEEE_FakeNewsDetection_GradientDescenters.pdf`.
+The full IEEE-style conference report is in `report/IEEE_FakeNewsDetection_GradientDescenters.pdf`
 
-Sections: Abstract · Introduction · Literature Review (6 subsections, 17 citations) · Methods (7 subsections) · Results (4 subsections with tables and figures) · Discussion · Conclusion & Future Work · References
+Sections: Abstract · Introduction · Literature Review (6 subsections) · Methods (7 subsections) · Results (4 subsections) · Discussion · Conclusion & Future Work · References (18 citations)
 
 ---
 
 ## 📝 License
 
 This project was submitted as part of **CECS 551 — Artificial Intelligence** at California State University, Long Beach. For academic use only.
+
+---
