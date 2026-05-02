@@ -112,7 +112,7 @@ Section 11 — Explainable AI (LIME word-level + SHAP token-level explanations)
 
 [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/)
 
-Go to [colab.research.google.com](https://colab.research.google.com/) → **File → Upload notebook** → select `Fake_News_Detection_GradientDescenters.ipynb`
+Go to [colab.research.google.com](https://colab.research.google.com/) → **File → Upload notebook** → select `AI_Notebook.ipynb`
 
 ---
 
