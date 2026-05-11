@@ -7,7 +7,7 @@
 ![License](https://img.shields.io/badge/License-Academic-green)
 ![Course](https://img.shields.io/badge/CECS%20551-CSULB-red)
 
-> A complete, reproducible fake news detection pipeline combining fine-tuned **DistilBERT** with **LIME** and **SHAP** Explainable AI — achieving an **F1-score of 0.9995** and **perfect precision of 1.0000** on 4,404 held-out test articles.
+> A complete, reproducible fake news detection pipeline combining fine-tuned **DistilBERT** with **LIME** and **SHAP** Explainable AI — achieving an **F1-score of 0.9998** and **perfect precision of 1.0000** on 4,404 held-out test articles.
 
 ## 🔗 Quick Navigation
 [👥 Team](#-team--gradient-descenters) · [📊 Results](#-results-summary) · [🚀 How to Run](#-how-to-run-step-by-step) · [📦 Dependencies](#-dependencies) · [🔧 Hyperparameters](#-hyperparameters) · [🧠 XAI](#-explainable-ai-xai--section-11) · [⚠️ Limitations](#️-known-limitations) · [📄 Report](#-report)
@@ -33,9 +33,9 @@
 
 | Model | Accuracy | Precision | Recall | F1-Score |
 |---|---|---|---|---|
-| TF-IDF + Logistic Regression | 0.9927 | 0.9901 | 0.9948 | 0.9925 |
-| TF-IDF + Linear SVM | 0.9975 | 0.9967 | 0.9981 | 0.9974 |
-| **DistilBERT (Fine-tuned)** ⭐ | **0.9995** | **1.0000** | **0.9991** | **0.9995** |
+| TF-IDF + Logistic Regression | 0.9850 | 0.9790 | 0.9901 | 0.9845 |
+| TF-IDF + Linear SVM | 0.9957 | 0.9948 | 0.9962 | 0.9955 |
+| **DistilBERT (Fine-tuned)** ⭐ | **0.9998** | **1.0000** | **0.9995** | **0.9998** |
 
 > ✅ DistilBERT achieves **perfect precision** — every article predicted as Real was genuinely Real, with **zero false positives** and only **2 misclassifications** out of 4,404 test articles.
 
@@ -68,7 +68,7 @@ fake-news-detection/
 |---|---|
 | Source | [Kaggle — Fake and Real News Dataset (Bisaillon)](https://www.kaggle.com/datasets/clmentbisaillon/fake-and-real-news-dataset) |
 | Raw size | 44,898 articles |
-| After preprocessing | 44,034 articles |
+| After preprocessing | 44,689 articles |
 | Fake articles | 23,481 (52.3%) — Label 0 |
 | Real articles | 21,417 (47.7%) — Label 1 |
 | Class balance | Near-balanced — no resampling required |
@@ -103,6 +103,12 @@ Section 9  — DistilBERT Fine-Tuning (3 epochs, AdamW, linear warmup)
 Section 10 — Model Comparison (all 3 models, all 4 metrics)
          ↓
 Section 11 — Explainable AI (LIME word-level + SHAP token-level explanations)
+         ↓
+Section 12 — Final Summary & Conclusions
+         ↓
+Section 13 — Cross-Dataset Evaluation (LIAR benchmark)
+         ↓
+Section 14 — Project Conclusion
 ```
 
 ---
@@ -164,7 +170,7 @@ Runtime → Run all
 All dependencies are **automatically installed in Section 1** (Cell 1) of the notebook. No manual setup needed in Colab.
 
 ```python
-!pip install transformers datasets lime shap --quiet
+!pip install transformers==4.40.0 datasets==2.19.0 lime==0.2.0.1 shap==0.45.0 --quiet
 ```
 
 | Package | Purpose |
