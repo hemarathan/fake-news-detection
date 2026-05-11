@@ -54,7 +54,7 @@ fake-news-detection/
 
 ├── 📄 README.md               ← You are here
 
-├── 📓 AI_Notebook.ipynb       ← Main notebook (all 11 sections)
+├── 📓 AI_Notebook.ipynb       ← Main notebook (all 14 sections)
 
 └── 📑 IEEE_Report.pdf         ← Final IEEE conference report
 
