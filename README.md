@@ -81,7 +81,7 @@ fake-news-detection/
 
 ## ⚙️ Pipeline Overview
 
-The notebook is organized into **11 sequential sections**:
+The notebook is organized into **14 sequential sections**:
 
 ```
 Fake.csv + True.csv  (Kaggle Download)
@@ -150,8 +150,6 @@ In Colab, click the 📁 **folder icon** in the left sidebar → click the **upl
 ---
 
 ### Step 5 — Run All Cells in Order
-
-> GPU is **required** for DistilBERT training. Running on CPU will be extremely slow (~8–10x longer).
 
 Runtime → Run all
 
