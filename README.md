@@ -54,9 +54,9 @@ fake-news-detection/
 
 ├── 📄 README.md               ← You are here
 
-├── 📓 AI_Notebook.ipynb       ← Main notebook (all 14 sections)
+├── 📓 AI_Notebook_Final.ipynb       ← Main notebook (all 14 sections)
 
-└── 📑 IEEE_Report.pdf         ← Final IEEE conference report
+└── 📑 IEEE_Report_Phase4_Final.pdf        ← Final IEEE conference report
 
 
 > ⚠️ Dataset files (`Fake.csv`, `True.csv`) are **not included** due to file size. See Step 3 below for download instructions.
@@ -292,7 +292,7 @@ We apply two complementary post-hoc XAI methods to understand individual DistilB
 
 ## 📄 Report
 
-The full IEEE-style conference report is available here: [📑 IEEE Report](IEEE_Report.pdf)
+The full IEEE-style conference report is available here: [📑 IEEE Report](IEEE_Report_Phase4_Final.pdf)
 
 Sections: Abstract · Introduction · Literature Review (6 subsections) · Methods (7 subsections) · Results (4 subsections) · Discussion · Conclusion & Future Work · References (18 citations)
 
